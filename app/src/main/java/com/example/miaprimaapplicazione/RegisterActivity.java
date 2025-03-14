@@ -1,5 +1,6 @@
 package com.example.miaprimaapplicazione;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -8,6 +9,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.gson.Gson;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -25,10 +28,22 @@ public class RegisterActivity extends AppCompatActivity {
         EditText email = findViewById(R.id.EmailInserimento);
         Button register = findViewById(R.id.button3);
 
+        //Listener per il pulsante Register
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Utente utente = new Utente(nome.getText().toString(), cognome.getText().toString(), dataNascita.getText().toString(), username.getText().toString(), password.getText().toString(), email.getText().toString());
+
+                //Conversione dell'oggetto utente in formato JSON
+                Gson gson = new Gson();
+                String utenteJson = gson.toJson(utente);
+                Log.d("utenteJson", utenteJson);
+
+                //Invio dell'oggetto utente tramite Intent
+                Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                intent.putExtra("utente", utenteJson);
+                startActivity(intent);
+
                 //Uso del log
                 Log.d("Registrazione", "Nome: " + nome.getText().toString() + " Cognome: " + cognome.getText().toString() + " DataNascita: " + dataNascita.getText().toString() + " Username: " + username.getText().toString() + " Password: " + password.getText().toString() + " Email: " + email.getText().toString());
 
