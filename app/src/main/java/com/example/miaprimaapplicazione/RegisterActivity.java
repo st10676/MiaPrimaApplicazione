@@ -20,13 +20,13 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         //collegamento con elementi grafici
-        EditText nome = findViewById(R.id.NomeInserimento);
-        EditText cognome = findViewById(R.id.CognomeInserimento);
-        EditText dataNascita = findViewById(R.id.DataNascitaInserimento);
-        EditText username = findViewById(R.id.UsernameInserimento);
-        EditText password = findViewById(R.id.PasswordInserimento);
-        EditText email = findViewById(R.id.EmailInserimento);
-        Button register = findViewById(R.id.button3);
+        EditText nome = findViewById(R.id.nomeInserimento);
+        EditText cognome = findViewById(R.id.cognomeInserimento);
+        EditText dataNascita = findViewById(R.id.datanascitaInserimento);
+        EditText username = findViewById(R.id.usernameInserimento);
+        EditText password = findViewById(R.id.passwordInserimento);
+        EditText email = findViewById(R.id.emailInserimento);
+        Button register = findViewById(R.id.registrazioneBottone);
 
         //Listener per il pulsante Register
         register.setOnClickListener(new View.OnClickListener() {
